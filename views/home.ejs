@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://e7.pngegg.com/pngimages/498/452/png-clipart-hand-tool-computer-icons-tools-miscellaneous-spanners.png">
+    <title>home</title>
+
+    
+</head>
+
+<div class="header">
+    <div class="container-bar">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+    <p class="user-greeting">Hello <%= user.username %></p>
+</div>  <style>
+    /* สไตล์ของข้อความที่แสดงข้อความ "Hello, <%= user.username %>" */
+    .user-greeting {
+        margin-top: 15px;
+        margin-right: 15px;
+        color: white;
+        /* float: right; */
+        margin-right: 10px;
+        font-weight: bold; /* ทำให้ตัวหนา */
+        font-size: 20px; /* ปรับขนาดตัวอักษร */
+        text-transform: uppercase; /* ทำให้เป็นตัวพิมพ์ใหญ่ทั้งหมด */
+        
+    }
+</style>
+
+
+    <div class="container-left">
+        <div class="container-left-menu">
+            <div class="logo-menu">
+                <span>Mechanic Infrom</span>
+                <p>หน้าหลัก</p>
+            </div>
+            <!-- /repe เพิ่มเพื่อไปหน้าของrepe -->
+            <li><a href="/repe">การแจ้งซ่อม</a></li>
+            <li><a href="/datarepe">รายการแจ้งซ่อม</a></li>
+            <li><a href="/login">ออกจากระบบ</a></li>
+        </div>
+    </div>
+
+   
+
+
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        background-image: url(https://fondosmil.com/fondo/29366.jpg);
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+    }
+
+    /* ส่วนหัว */
+    .header{
+        width: 100%;
+        max-width: 100%;
+        height: 60px;
+        background-color: rgb(57, 57, 57);
+        
+    }
+    .container-bar {
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    /*ส่วนเมนูด้านซ้าย*/
+    .container-left {
+        background-color: rgb(53, 53, 53);
+        width: 250px;
+        height: 100%;
+        position: fixed;
+    }
+    .container-left-menu li{
+        transition: all 0.5s ease;          /*ดีเลย์อนิเมชั่น*/
+        display: block; 
+        padding: 20px;
+        color: aliceblue;
+        list-style: none;   /*ลบจุด*/
+        align-items: center;
+        border-bottom: 1px solid rgba(113, 90, 90, 0.1);     /*เพิ่มกรอบลบล่าง*/
+        
+    }
+    .logo-menu {
+        padding: 20px;
+        border-bottom: 1px solid rgba(113, 90, 90, 0.1); 
+    }
+    .logo-menu span {
+        text-decoration: none;      /*ลบเส้นใต้*/
+        color: floralwhite;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    .logo-menu p {
+        color: rgb(255, 255, 255);
+        margin-top: 10px;
+    }
+    .container-left-menu li a {
+        text-decoration: none;      /*ลบเส้นใต้*/
+        color: floralwhite;
+    }
+
+    .container-left-menu li:hover {
+        background-color: black;
+    }
+    /*ส่วนปิดเมนูด้านซ้าย*/
+
+    </style>
+
+
+
+
+</body>
+</html>

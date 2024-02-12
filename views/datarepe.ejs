@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://e7.pngegg.com/pngimages/498/452/png-clipart-hand-tool-computer-icons-tools-miscellaneous-spanners.png">
+    <title>datarepe</title>
+    <!-- Link Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+</head>
+<body>
+
+    <!-- เเถบบลาสาวนหัวเว็บ -->
+    <div class="header">
+        <div class="container-bar" >
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+        </div>
+    </div>
+
+    <!-- เเถบเมณูด้านขวาเว็บ -->
+    <div class="container-left">
+        <div class="container-left-menu">
+            <div class="logo-menu">
+                <span>Mechanic Infrom</span>
+                <p>ข้อมูลแสดงรายการ</p>
+            </div>
+            <!-- <li><a href="/datarepe">รายการเเจ้งซ่อม</a></li> -->
+            <li><a href="/home">กลับไปหน้าหลัก</a></li>
+            
+        </div>
+    </div>
+
+
+
+   <!-- ตารางจาก ฐานข้อมูล -->
+<div class="container">
+    <% if (repairs && repairs.length > 0) { %>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ผู้แจ้ง</th>
+                    <th>แจ้งปัญหา</th>
+                    <th>รายละเอียดงาน</th>
+                    <th>สถานที่แจ้ง</th>
+                    <th>การดำเนินการ</th>
+                </tr>
+            </thead>
+            <tbody>            
+                <% repairs.forEach((repair) => { %>
+                    <!-- เเสดงข้อมูล -->
+                    <tr> 
+                        <td><%= repair.reporterName %></td>
+                        <td><%= repair.problemDescription %></td>
+                        <td><%= repair.jobDetails %></td>
+                        <td><%= repair.location %></td>
+                        <td>
+                            <% if (repair.status === "กำลังซ่อม") { %>
+                                <span class="badge badge-warning">กำลังซ่อม</span>
+                            <% } else if (repair.status === "เสร็จแล้ว") { %>
+                                <span class="badge badge-success">เสร็จแล้ว</span>
+                            <% } %>
+                            
+                            
+                            <!-- ลบข้อมูล -->
+                            <form action="/delete/<%= repair.id %>" method="post">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No repairs found.</p>
+    <% } %>
+</div>
+
+    
+<!-- ---------cssของตาราง-------- -->
+
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url(https://fondosmil.com/fondo/29366.jpg);
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1278px; /*เพิ่มความยาวตาราง*/
+        margin-left: 250px ; /*ขยับตารางทั้งหมด*/
+        padding: 20px;
+        background-color: rgb(102, 102, 102);
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .table th,
+    .table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .table thead {
+        background-color: #343434;
+        color: #fff;
+    }
+
+    .table th {
+        text-align: left;
+    }
+
+    .btn {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+    }
+
+    .btn:hover {
+        background-color: #a20010;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+        .table th,
+        .table td {
+            font-size: 14px;
+            padding: 8px;
+        }
+    }
+</style>
+
+
+                    <!-- Form to Add Repair -->
+                    <!-- <h2>Add New Repair</h2>
+                    <form action="/addRepair" method="post">
+                        <div class="form-group">
+                            <label for="reporterName">Reporter Name</label>
+                            <input type="text" class="form-control" id="reporterName" name="reporterName">
+                        </div>
+                        <div class="form-group">
+                            <label for="problemDescription">Problem Description</label>
+                            <input type="text" class="form-control" id="problemDescription" name="problemDescription">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobDetails">Job Details</label>
+                            <input type="text" class="form-control" id="jobDetails" name="jobDetails">
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" class="form-control" id="location" name="location">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Repair</button>
+                    </form> -->
+    
+   
+    <!-- cssของเเถบบลา เเละ เมณูด้านซ้าย -->
+     <style>
+        /* บลาตรงส่วนหัวเว็บ */
+        .header{
+        width: 100%;
+        max-width: 100%;
+        height: 60px;
+        background-color: rgb(57, 57, 57);
+        
+    }
+
+    .container-left {
+         background-color: rgb(57, 57, 57);
+         width: 250px;
+         height: 100%;
+         position: fixed;
+     }
+     .container-left-menu li{
+         transition: all 0.5s ease;          /*ดีเลย์อนิเมชั่น*/
+         display: block; 
+         padding: 20px;
+         color: aliceblue;
+         list-style: none;   /*ลบจุด*/
+         align-items: center;
+         border-bottom: 1px solid rgba(113, 90, 90, 0.1);     /*เพิ่มกรอบลบล่าง*/
+         
+     }
+     .logo-menu {
+         padding: 20px;
+         border-bottom: 1px solid rgba(113, 90, 90, 0.1); 
+     }
+     
+     .logo-menu span {
+         text-decoration: none;      /*ลบเส้นใต้*/
+         color: rgb(255, 255, 255);
+         font-weight: bold;
+         font-size: 25px;
+     }
+     .logo-menu p {
+         color: rgb(255, 255, 255);
+         margin-top: 10px;
+     }
+     .container-left-menu li a {
+         text-decoration: none;      /*ลบเส้นใต้*/
+         color: rgb(255, 255, 255);
+     }
+ 
+     .container-left-menu li:hover {
+         background-color: rgb(0, 0, 0);
+     }
+     /*ส่วนปิดเมนูด้านซ้าย*/
+     </style>
+    </style>
+
+
+</body>
+</html>
